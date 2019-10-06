@@ -1,0 +1,18 @@
+<table class="productsList">
+  <thead>
+  <th>Name</th>
+  <th>Price</th>
+  <th>Amount</th>
+  <th></th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let product of products">
+    <td>{{product.name}}</td>
+    <td>{{product.price}}</td>
+    <td>{{product.amount}}</td>
+    <td>
+      <button *ngIf="product.isAvailable" (click)="onBuy(product)">Buy</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
