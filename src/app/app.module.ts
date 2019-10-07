@@ -10,8 +10,8 @@ import { CartComponent } from './cart/components/carts/cart.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ProductComponentComponent,
-    ProductListComponentComponent,
+    ProductComponentComponent,  // <-- надо убрать лишний суффикс Component
+    ProductListComponentComponent, // <-- надо убрать лишний суффикс Component
     CartComponent
   ],
   imports: [
