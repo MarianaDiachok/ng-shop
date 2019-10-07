@@ -4,6 +4,7 @@ import { ProductModel } from '../../models/product.model';
 import { ProductsService } from '../../services/products.service';
 import {CartService} from '../../../cart/services/cart.service';
 
+// Поправить названия файлов, убрать из названия -componnt
 @Component({
   selector: 'app-product-list-component',
   templateUrl: './product-list-component.component.html',
@@ -19,7 +20,7 @@ export class ProductListComponentComponent implements OnInit {
   }
 
   onBuy(item) {
-    this.cartService.purchaseList.push(item);
+    this.cartService.purchaseList.push(item); // желательно организовать метод и скрыть форму хранения, тоесть свойство purchaseList сделать приватным.
   }
 
 }

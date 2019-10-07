@@ -1,6 +1,6 @@
 <div>
   <h3>Shop cart</h3>
-  <div *ngIf="purchaseList">
+  <div *ngIf="purchaseList"> <!-- Это условие всегда true, так как это массив -->
     <ul *ngFor="let purchase of purchaseList">
       <li>{{purchase.name}}</li>
     </ul>
