@@ -4,11 +4,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CartService {
-  purchaseList = [];
+  private purchaseList = [];
 
   constructor() { }
 
-  getpurchaseList() {
+  getPurchaseList() {
     return this.purchaseList;
   }
 }

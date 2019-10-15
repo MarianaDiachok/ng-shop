@@ -6,20 +6,22 @@ import {CartService} from '../../../cart/services/cart.service';
 
 @Component({
   selector: 'app-product-list-component',
-  templateUrl: './product-list-component.component.html',
-  styleUrls: ['./product-list-component.component.scss']
+  templateUrl: './product-list.component.html',
+  styleUrls: ['./product-list.component.scss']
 })
-export class ProductListComponentComponent implements OnInit {
+export class ProductListComponent implements OnInit {
   products: ProductModel[];
+  purchaseList = [];
 
   constructor(private prodService: ProductsService, private cartService: CartService) { }
 
   ngOnInit() {
     this.products = this.prodService.productsList;
+    this.purchaseList = this.cartService.getPurchaseList();
   }
 
   onBuy(item) {
-    this.cartService.purchaseList.push(item);
+    this.purchaseList.push(item);
   }
 
 }
