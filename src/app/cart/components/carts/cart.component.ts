@@ -9,12 +9,17 @@ import { CartService } from '../../services/cart.service';
 })
 export class CartComponent implements OnInit {
   purchaseList = [];
+  // amount: number;
 
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
     this.purchaseList = this.cartService.getPurchaseList();
-    console.log(this.purchaseList);
+    // this.amount = this.cartService.productAmount;
+  }
+
+  get totalPrice() {
+    return this.cartService.getTotalPrice();
   }
 
 }

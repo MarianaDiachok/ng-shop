@@ -16,12 +16,18 @@ export class ProductListComponent implements OnInit {
   constructor(private prodService: ProductsService, private cartService: CartService) { }
 
   ngOnInit() {
-    this.products = this.prodService.productsList;
+    this.products = this.prodService.getProducts();
     this.purchaseList = this.cartService.getPurchaseList();
   }
 
   onBuy(item) {
-    this.purchaseList.push(item);
+    const itemIsInCart = this.purchaseList.includes(item);
+    if (!itemIsInCart) {
+      this.purchaseList.push(item);
+      item.orderedAmount++;
+    } else {
+      item.orderedAmount++;
+    }
   }
 
 }

@@ -9,9 +9,9 @@
   <tr *ngFor="let product of products">
     <td>{{product.name}}</td>
     <td>{{product.price}}</td>
-    <td>{{product.amount}}</td>
+    <td>{{product.receivedAmount}}</td>
     <td>
-      <button *ngIf="product.isAvailable" (click)="onBuy(product)">Buy</button>
+      <button [disabled]="!product.isAvailable || (product.receivedAmount === product.orderedAmount)" (click)="onBuy(product)">Buy</button>
     </td>
   </tr>
   </tbody>

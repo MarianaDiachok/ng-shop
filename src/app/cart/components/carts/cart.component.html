@@ -2,8 +2,9 @@
   <h3>Shop cart</h3>
   <div>
     <ul *ngFor="let purchase of purchaseList">
-      <li>{{purchase.name}}</li>
+      <li>{{purchase.name}} : {{purchase.orderedAmount}} - {{purchase.price | currency}}</li>
     </ul>
+    <p>Total price is : {{totalPrice | currency}}</p>
   </div>
 
   <div *ngIf="purchaseList.length < 1">
