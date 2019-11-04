@@ -14,7 +14,23 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     this.purchaseList = this.cartService.getPurchaseList();
-    console.log(this.purchaseList);
   }
 
+  get totalPrice() {
+    return this.cartService.getTotalPrice();
+  }
+
+  onEdit(item) {
+
+  }
+
+  onRemove(purchase) {
+    this.purchaseList = this.purchaseList.filter((item) => {
+      return purchase !== item;
+    });
+  }
+
+  onAdd(product) {
+
+  }
 }

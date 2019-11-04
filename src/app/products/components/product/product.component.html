@@ -1,1 +1,6 @@
-<app-product-list-component></app-product-list-component>
+<p class="productItem">
+  <span>{{product.name}}</span>
+  <button [disabled]="!product.isAvailable"
+          (click)="onBuyProduct(product)">Buy
+  </button>
+</p>

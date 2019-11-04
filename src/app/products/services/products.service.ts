@@ -4,23 +4,36 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ProductsService {
-  productsList = [
+  private productsList = [
     {
       name: 'banana',
       price: 20,
-      amount: 5,
+      receivedAmount: 5,
+      orderedAmount: 0,
       isAvailable: true
     },
     {
       name: 'milk',
       price: 10.50,
-      amount: 1,
+      orderedAmount: 0,
       isAvailable: false
     },
     {
       name: 'tomato',
       price: 25,
-      amount: 2,
+      orderedAmount: 0,
+      isAvailable: true
+    },
+    {
+      name: 'bread',
+      price: 5.30,
+      orderedAmount: 0,
+      isAvailable: true
+    },
+    {
+      name: 'water',
+      price: 11.25,
+      orderedAmount: 0,
       isAvailable: true
     }
       ];
@@ -29,4 +42,5 @@ export class ProductsService {
   getProducts() {
     return this.productsList;
   }
+
 }

@@ -1,10 +1,15 @@
 <div>
   <h3>Shop cart</h3>
-  <div>
-    <ul *ngFor="let purchase of purchaseList">
-      <li>{{purchase.name}}</li>
+    <ul>
+      <app-cart-item
+        *ngFor="let purchase of purchaseList"
+        [purchase]="purchase"
+        (edit)="onEdit($event)"
+        (remove)="onRemove($event)"
+        (add)="onAdd($event)">
+      </app-cart-item>
     </ul>
-  </div>
+    <p>Total price is : {{totalPrice | currency}}</p>
 
   <div *ngIf="purchaseList.length < 1">
     <p>Empty</p>
