@@ -1,30 +1,39 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { Router } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
+import { CartModule } from './cart/cart.module';
+import { SharedModule } from './shared/shared.module';
+import { LayoutModule } from './layout/layout.module';
+import { ProductsModule } from './products/products.module';
+import { MaterialModule } from './material.module';
+
 import { AppComponent } from './app.component';
-import { ProductComponent } from './products/components/product/product.component';
-import { ProductListComponent } from './products/components/product-list/product-list.component';
-import { CartComponent } from './cart/components/carts/cart.component';
-import {CartModule} from './cart/cart.module';
-import {SharedModule} from './shared/shared.module';
-import { AboutComponent } from './layout/components/about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductComponent,
-    ProductListComponent,
-    CartComponent,
-    AboutComponent
   ],
   imports: [
+    MaterialModule,
     CartModule,
     BrowserModule,
-    AppRoutingModule,
     SharedModule,
+    LayoutModule,
+    ProductsModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(router: Router) {
+    const replacer = (key: string, value: any): string =>
+      typeof value === 'function' ? value.name : value;
+
+    console.log('Routes: ', JSON.stringify(router.config, replacer, 2));
+  }
+}

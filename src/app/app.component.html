@@ -1,6 +1,39 @@
-<h1 #appTitle></h1>
+<!--<h1 #appTitle></h1>-->
 
-<app-product-list-component appHighlight></app-product-list-component>
-<app-cart></app-cart>
+<!--<app-product-list-component appHighlight></app-product-list-component>-->
+<!--<app-cart></app-cart>-->
+<!--<ul>-->
+<!--  <li routerLinkActive="active">-->
+<!--    <a class="navbar-brand" href="#" routerLink="/home">Products</a>-->
+<!--  </li>-->
+<!--  <li routerLinkActive="active">-->
+<!--    <a class="navbar-brand" href="#" routerLink="/cart">Cart</a>-->
+<!--  </li>-->
+<!--</ul>-->
+<!--<mat-slider min="1" max="100" step="1" value="1"></mat-slider>-->
 
-<router-outlet></router-outlet>
+<!--<ul class="nav">-->
+<!--  <li class="nav-item">-->
+<!--    <a class="nav-link active" href="#" routerLink="/home">Products</a>-->
+<!--  </li>-->
+<!--  <li class="nav-item">-->
+<!--    <a class="nav-link" href="#" routerLink="/cart">Cart</a>-->
+<!--  </li>-->
+<!--</ul>-->
+
+<nav mat-tab-nav-bar>
+  <a mat-tab-link
+     *ngFor="let link of navLinks"
+     [routerLink]="link.path"
+     routerLinkActive #rla="routerLinkActive"
+     [active]="rla.isActive">
+    {{link.label}}
+  </a>
+</nav>
+
+<router-outlet
+    #routerOutlet="outlet"
+    (activate)='onActivate($event, routerOutlet)'
+    (deactivate)='onDeactivate($event, routerOutlet)'>
+</router-outlet>
+
