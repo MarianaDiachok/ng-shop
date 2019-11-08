@@ -1,13 +1,19 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import {CartComponent} from './cart/components/carts/cart.component';
+import {PathNotFoundComponent} from './layout/components';
 
 const routes: Routes = [
   {
-    path: 'cart',
-    component: CartComponent,
-    data: { title: 'Cart' }
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full',
+    data: {title: 'Product Manager'}
+  },
+  {
+    path: '**',
+    component: PathNotFoundComponent,
+    data: { title: 'Path not found' }
   }
 ];
 

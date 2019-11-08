@@ -1,8 +1,8 @@
 <div class="productsList">
   <app-product-component
-    *ngFor="let product of products"
+    *ngFor="let product of products | async"
     [product]="product"
-    (buy)="onBuy($event)"
+    (buyProduct)="onBuyProduct($event)"
     appHighlight>
   </app-product-component>
 </div>

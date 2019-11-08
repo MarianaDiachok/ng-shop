@@ -1,6 +1,17 @@
-<p class="productItem">
-  <span>{{product.name}}</span>
-  <button [disabled]="!product.isAvailable"
-          (click)="onBuyProduct(product)">Buy
-  </button>
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading">Product {{product.id}}</div>
+  <div class="panel-body">
+    <ul>
+      <li>Name: {{product.name}}</li>
+      <li>Price: {{product.price}}</li>
+      <li>Amount: {{product.amount}}</li>
+      <li>Available: {{product.isAvailable}}</li>
+    </ul>
+    <button class="btn btn-primary btn-sm"
+            (click)="onBuyProduct()">
+      Buy
+    </button>
+  </div>
+</div>
+
+

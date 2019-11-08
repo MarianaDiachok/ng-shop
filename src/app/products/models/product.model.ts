@@ -1,6 +1,12 @@
 export class ProductModel {
-  name: string;
-  price: number;
-  orderedAmount: number;
-  isAvailable: boolean;
+  constructor(
+    public id: number | string,
+    public name: string,
+    public price: number,
+    public amount: number,
+    public isAvailable: boolean,
+  ) {
+
+  }
+
 }
